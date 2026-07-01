@@ -1,0 +1,27 @@
+name: Release
+on:
+    push:
+ 
+jobs:
+    release:
+        permissions:
+          id-token: write  # enable GitHub OIDC token issuance for this job
+
+        runs-on: ubuntu-latest
+        
+        steps:
+    
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - name: NuGet login
+            uses: NuGet/login@v1
+            id: login
+            with:
+              user: dustypigtv
+
+          - name: Build
+            run: |
+                sed -i "s|<Version>.*</Version>|<Version>$(date +%Y.%m.%d).${{github.run_number}}</Version>|" "DustyPig.FileSystem/DustyPig.FileSystem.csproj"
+                dotnet pack -c release -o nuget
+                dotnet nuget push "nuget/*.nupkg" --skip-duplicate -k ${{steps.login.outputs.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
