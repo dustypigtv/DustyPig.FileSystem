@@ -384,7 +384,7 @@ public class DirectoryInfoEx : FileSystemInfoEx
     }
 
 
-    public FileInfoEx GetUniqueFilename(string ext = ".tmp")
+    public FileInfoEx GetUniqueFileName(string ext = ".tmp")
     {
         if (string.IsNullOrWhiteSpace(ext))
             ext = ".tmp";
@@ -400,7 +400,7 @@ public class DirectoryInfoEx : FileSystemInfoEx
         }
     }
 
-    public DirectoryInfoEx GetUniqueDirectoryname()
+    public DirectoryInfoEx GetUniqueDirectoryName()
     {
         while (true)
         {
