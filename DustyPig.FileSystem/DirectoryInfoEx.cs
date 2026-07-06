@@ -13,11 +13,11 @@ public class DirectoryInfoEx : FileSystemInfoEx
 
     public static implicit operator DirectoryInfoEx(DirectoryInfo val) => new(val);
 
-    public static implicit operator DirectoryInfoEx(string val) => new(val);
+    //public static implicit operator DirectoryInfoEx(string val) => new(val);
 
     public static implicit operator DirectoryInfo(DirectoryInfoEx val) => val.InternalDirectoryInfo;
 
-    public static implicit operator string(DirectoryInfoEx val) => val.FullName;
+    //public static implicit operator string(DirectoryInfoEx val) => val.FullName;
 
     public static implicit operator DirectoryInfoEx(Environment.SpecialFolder specialFolder) => new(specialFolder);
 

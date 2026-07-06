@@ -13,11 +13,11 @@ public class FileInfoEx : FileSystemInfoEx
 
     public static implicit operator FileInfoEx(FileInfo val) => new(val);
 
-    public static implicit operator FileInfoEx(string val) => new(val);
+    //public static implicit operator FileInfoEx(string val) => new(val);
 
     public static implicit operator FileInfo(FileInfoEx val) => val.InternalFileInfo;
 
-    public static implicit operator string(FileInfoEx val) => val.FullName;
+    //public static implicit operator string(FileInfoEx val) => val.FullName;
 
     public FileInfo InternalFileInfo => (FileInfo)InternalFileSystemInfo;
 
